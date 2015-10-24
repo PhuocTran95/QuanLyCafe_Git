@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{B688AEAB-0A77-4FF1-AAC5-DD23F5FCDFF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{0C753DCA-36D1-4E3F-8883-188078F1E581}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{4CE19E63-6A50-42E5-B5C7-55C10F5C59C4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B688AEAB-0A77-4FF1-AAC5-DD23F5FCDFF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B688AEAB-0A77-4FF1-AAC5-DD23F5FCDFF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B688AEAB-0A77-4FF1-AAC5-DD23F5FCDFF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B688AEAB-0A77-4FF1-AAC5-DD23F5FCDFF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C753DCA-36D1-4E3F-8883-188078F1E581}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C753DCA-36D1-4E3F-8883-188078F1E581}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C753DCA-36D1-4E3F-8883-188078F1E581}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C753DCA-36D1-4E3F-8883-188078F1E581}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CE19E63-6A50-42E5-B5C7-55C10F5C59C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CE19E63-6A50-42E5-B5C7-55C10F5C59C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CE19E63-6A50-42E5-B5C7-55C10F5C59C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CE19E63-6A50-42E5-B5C7-55C10F5C59C4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
