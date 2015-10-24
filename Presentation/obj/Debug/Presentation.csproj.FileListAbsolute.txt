@@ -1,1 +1,2 @@
 D:\windows\QuanLyCafe\Presentation\bin\Debug\Presentation.exe.config
+D:\Data Phuoc\IUH\Nam III\HK1\LT Windows nang cao\QuanLyCafe_Git\Presentation\bin\Debug\Presentation.exe.config
