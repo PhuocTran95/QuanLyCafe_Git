@@ -9,6 +9,5 @@ namespace BusinessLogic
     public class clsSanPham
     {
         QLCafeDataContext da;
-        //Command test
     }
 }
