@@ -9,6 +9,7 @@ namespace BusinessLogic
 {
     public class clsKhachHang
     {
-        QLCafeDataContext da;
+        QLCafeDataContext da=new QLCafeDataContext();
+
     }
 }
