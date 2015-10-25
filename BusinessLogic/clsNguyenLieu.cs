@@ -9,5 +9,6 @@ namespace BusinessLogic
     public class clsNguyenLieu
     {
         QLCafeDataContext da;
+        //Tét
     }
 }
