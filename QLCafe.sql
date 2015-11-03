@@ -26,20 +26,26 @@ create table HoaDon(maHD varchar(10) primary key,
 maNV varchar(10) references NhanVien(maNV),
 ngaylapHD date not null,
 loaiHD bit not null,
-tongtien money,
-maKH varchar(10) references KhachHang(maKH),
-maCP varchar(10) references Coupon(maCP))
+tongtien money)
 go
- 
+
+create table LoaiSP(maLoai varchar(10) primary key,
+tenLoai nvarchar(255) not null,
+)
+go
+
 create table SanPham(maSP varchar(10) primary key,
+loaiSP varchar(10) references LoaiSP(maLoai),
 tenSP nvarchar(255) not null,
 dongia money not null,
-mota nvarchar(255),)
+mota nvarchar(255))
 go
 
 create table CT_HoaDonThu(maHDT varchar(10) references HoaDon(maHD),
 maSP varchar(10) references SanPham(maSP),
 soluong int not null,
+maKH varchar(10) references KhachHang(maKH),
+maCP varchar(10) references Coupon(maCP),
 dongia money)
 go
 
