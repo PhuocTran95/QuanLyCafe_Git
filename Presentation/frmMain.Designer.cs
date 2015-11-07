@@ -167,7 +167,7 @@
             this.thêmLoạiMặtHàngToolStripMenuItem,
             this.thêmMặtHàngToolStripMenuItem});
             this.thêmMặtHàngToolStripMenuItem1.Name = "thêmMặtHàngToolStripMenuItem1";
-            this.thêmMặtHàngToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.thêmMặtHàngToolStripMenuItem1.Size = new System.Drawing.Size(125, 22);
             this.thêmMặtHàngToolStripMenuItem1.Text = "&Mặt hàng";
             // 
             // thêmLoạiMặtHàngToolStripMenuItem
@@ -185,7 +185,7 @@
             // thToolStripMenuItem
             // 
             this.thToolStripMenuItem.Name = "thToolStripMenuItem";
-            this.thToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.thToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.thToolStripMenuItem.Text = "&Coupon";
             // 
             // quảnLýToolStripMenuItem
@@ -200,13 +200,13 @@
             // thuToolStripMenuItem
             // 
             this.thuToolStripMenuItem.Name = "thuToolStripMenuItem";
-            this.thuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.thuToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
             this.thuToolStripMenuItem.Text = "Thu";
             // 
             // chiToolStripMenuItem
             // 
             this.chiToolStripMenuItem.Name = "chiToolStripMenuItem";
-            this.chiToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.chiToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
             this.chiToolStripMenuItem.Text = "Chi";
             // 
             // nhânSựToolStripMenuItem
@@ -257,6 +257,7 @@
             this.kháchHàngToolStripMenuItem.Name = "kháchHàngToolStripMenuItem";
             this.kháchHàngToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
             this.kháchHàngToolStripMenuItem.Text = "&Khách hàng";
+            this.kháchHàngToolStripMenuItem.Click += new System.EventHandler(this.kháchHàngToolStripMenuItem_Click);
             // 
             // errorProvider1
             // 
@@ -360,7 +361,7 @@
             this.lblPhuThu.AutoSize = true;
             this.lblPhuThu.Location = new System.Drawing.Point(68, 331);
             this.lblPhuThu.Name = "lblPhuThu";
-            this.lblPhuThu.Size = new System.Drawing.Size(71, 20);
+            this.lblPhuThu.Size = new System.Drawing.Size(70, 20);
             this.lblPhuThu.TabIndex = 9;
             this.lblPhuThu.Text = "Phụ thu:";
             // 
@@ -376,7 +377,7 @@
             this.lblGiamGia.AutoSize = true;
             this.lblGiamGia.Location = new System.Drawing.Point(68, 290);
             this.lblGiamGia.Name = "lblGiamGia";
-            this.lblGiamGia.Size = new System.Drawing.Size(81, 20);
+            this.lblGiamGia.Size = new System.Drawing.Size(80, 20);
             this.lblGiamGia.TabIndex = 7;
             this.lblGiamGia.Text = "Giảm giá:";
             // 
@@ -385,7 +386,7 @@
             this.lblMatHangGD.AutoSize = true;
             this.lblMatHangGD.Location = new System.Drawing.Point(69, 111);
             this.lblMatHangGD.Name = "lblMatHangGD";
-            this.lblMatHangGD.Size = new System.Drawing.Size(338, 20);
+            this.lblMatHangGD.Size = new System.Drawing.Size(331, 20);
             this.lblMatHangGD.TabIndex = 4;
             this.lblMatHangGD.Text = "Danh sách mặt hàng: (chọn trong bảng bên)";
             // 
@@ -402,7 +403,7 @@
             this.lblNhanVienGD.AutoSize = true;
             this.lblNhanVienGD.Location = new System.Drawing.Point(69, 73);
             this.lblNhanVienGD.Name = "lblNhanVienGD";
-            this.lblNhanVienGD.Size = new System.Drawing.Size(160, 20);
+            this.lblNhanVienGD.Size = new System.Drawing.Size(157, 20);
             this.lblNhanVienGD.TabIndex = 2;
             this.lblNhanVienGD.Text = "Nhân viên giao dịch:";
             // 
@@ -419,7 +420,7 @@
             this.lblMaGD.AutoSize = true;
             this.lblMaGD.Location = new System.Drawing.Point(69, 32);
             this.lblMaGD.Name = "lblMaGD";
-            this.lblMaGD.Size = new System.Drawing.Size(109, 20);
+            this.lblMaGD.Size = new System.Drawing.Size(107, 20);
             this.lblMaGD.TabIndex = 0;
             this.lblMaGD.Text = "Mã giao dịch:";
             // 
@@ -467,7 +468,7 @@
             this.lblSoLuong.AutoSize = true;
             this.lblSoLuong.Location = new System.Drawing.Point(8, 322);
             this.lblSoLuong.Name = "lblSoLuong";
-            this.lblSoLuong.Size = new System.Drawing.Size(121, 20);
+            this.lblSoLuong.Size = new System.Drawing.Size(119, 20);
             this.lblSoLuong.TabIndex = 1;
             this.lblSoLuong.Text = "Nhập số lượng:";
             // 
@@ -499,6 +500,7 @@
             this.MaximumSize = new System.Drawing.Size(800, 500);
             this.MinimumSize = new System.Drawing.Size(800, 500);
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QUẢN LÝ CAFE - iCafe";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

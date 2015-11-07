@@ -16,5 +16,13 @@ namespace Presentation
         {
             InitializeComponent();
         }
+
+        private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDSKhachHang frmKhachHang = new frmDSKhachHang();
+            this.Hide();
+            frmKhachHang.ShowDialog();
+            this.Show();
+        }
     }
 }

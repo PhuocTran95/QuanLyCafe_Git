@@ -135,6 +135,7 @@
             this.MaximumSize = new System.Drawing.Size(396, 281);
             this.MinimumSize = new System.Drawing.Size(396, 281);
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập hệ thống";
             this.ResumeLayout(false);
             this.PerformLayout();
