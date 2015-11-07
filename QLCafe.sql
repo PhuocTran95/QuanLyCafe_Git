@@ -5,7 +5,7 @@ go
 create table KhachHang(maKH varchar(10) primary key,
 tenKH nvarchar(255) not null,
 thanthiet bit not null)
-go
+go	
 
 create table NhanVien(maNV varchar(10) primary key,
 tenNV nvarchar(255) not null,
@@ -22,10 +22,11 @@ ngayBatDau date not null,
 ngayKetThuc date not null)
 go
 
-create table HoaDon(maHD varchar(10) primary key,
+create table HoaDon(maHD varchar(100) primary key,
 maNV varchar(10) references NhanVien(maNV),
 ngaylapHD date not null,
 loaiHD bit not null,
+phuthu money,
 tongtien money)
 go
 
@@ -41,7 +42,7 @@ dongia money not null,
 mota nvarchar(255))
 go
 
-create table CT_HoaDonThu(maHDT varchar(10) references HoaDon(maHD),
+create table CT_HoaDonThu(maHDT varchar(100) references HoaDon(maHD),
 maSP varchar(10) references SanPham(maSP),
 soluong int not null,
 maKH varchar(10) references KhachHang(maKH),
@@ -54,7 +55,7 @@ tenNL nvarchar(255) not null,
 dongiaNL money)
 go
 
-create table CT_HoaDonChi(maHDC varchar(10) references HoaDon(maHD),
+create table CT_HoaDonChi(maHDC varchar(100) references HoaDon(maHD),
 maNL varchar(10) references NguyenLieu(maNL),
 soluong int not null,
 ghichu nvarchar(255)) 
