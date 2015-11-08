@@ -54,7 +54,7 @@ namespace DataAccess
     #endregion
 		
 		public QLCafeDataContext() : 
-				base(global::DataAccess.Properties.Settings.Default.QLCafeConnectionString2, mappingSource)
+				base(global::DataAccess.Properties.Settings.Default.QLCafeConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}

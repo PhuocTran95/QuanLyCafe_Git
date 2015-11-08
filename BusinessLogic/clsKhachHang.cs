@@ -18,6 +18,18 @@ namespace BusinessLogic
             List<KhachHang> lstKH = da.KhachHangs.ToList();
             return lstKH;
         }
+        public List<KhachHang> getKhachHangByMa(string maKH)
+        {
+            da = new QLCafeDataContext();
+            List<KhachHang> lstKH = da.KhachHangs.Where(o => o.maKH == maKH).ToList();
+            return lstKH;
+        }
+        public List<KhachHang> getKhachHangByTen(string tenKH)
+        {
+            da = new QLCafeDataContext();
+            List<KhachHang> lstKH = da.KhachHangs.Where(o => o.tenKH == tenKH).ToList();
+            return lstKH;
+        }
         public bool addKhachHang(KhachHang kh)
         {
             try
@@ -31,7 +43,7 @@ namespace BusinessLogic
                 }
                 return false;
             }
-            catch { return false; }
+            catch { throw new Exception("Thêm khách hàng thất bại. Mã khách hàng đã tồn tại"); }
         }
         public bool deleteKhachHang(string maKH)
         {
@@ -55,7 +67,7 @@ namespace BusinessLogic
             {
                 da = new QLCafeDataContext();
                 KhachHang kh = da.KhachHangs.Where(o => o.maKH == KHNew.maKH).FirstOrDefault();
-                if(kh!=null && da.KhachHangs.Where(o=>o.cmnd==KHNew.cmnd).FirstOrDefault()==null)
+                if(kh!=null)
                 {
                     kh.maKH = KHNew.maKH;
                     kh.tenKH = KHNew.tenKH;
@@ -66,7 +78,7 @@ namespace BusinessLogic
                 }
                 return false;
             }
-            catch { return false; }
+            catch { throw new Exception("Chỉnh sửa khách hàng thất bại. Mã khách hàng đã tồn tại"); }
         }
     }
 }
