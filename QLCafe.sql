@@ -13,7 +13,7 @@ tenNV nvarchar(255) not null,
 phai nvarchar(10) not null,
 diachi nvarchar(255),
 cmnd varchar(10) not null,
-matkhauNV varchar(20))
+matkhauNV varchar(20),not null)
 go
 
 create table HoaDon(maHD varchar(100) primary key,

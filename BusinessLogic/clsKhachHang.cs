@@ -77,5 +77,35 @@ namespace BusinessLogic
             }
             catch { throw new Exception("Chỉnh sửa khách hàng thất bại. Mã khách hàng đã tồn tại"); }
         }
+        public string createMaKH()
+        {
+            da = new QLCafeDataContext();
+            string id = "";
+
+            object obj = (from hd in da.KhachHangs
+                          orderby hd.maKH descending
+                          select hd.maKH
+                          ).FirstOrDefault();
+
+            if (obj == null)
+                id = "KH" + "00001";
+            else
+            {
+                int num = int.Parse(obj.ToString().Substring(
+                    obj.ToString().Length - 5));
+                num++;
+                if (num < 10)
+                    id = "KH" + "0000" + num;
+                else if (num >= 10 && num < 100)
+                    id = "KH" + "000" + num;
+                else if (num >= 100 && num < 1000)
+                    id = "KH" + "00" + num;
+                else if (num >= 1000 && num < 10000)
+                    id = "KH" + "0" + num;
+                else
+                    id = "KH" + num;
+            }
+            return id;
+        }
     }
 }
