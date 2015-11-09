@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLCafe" Class="QLCafeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=QLCafe;Persist Security Info=True;User ID=sa" SettingsObjectName="DataAccess.Properties.Settings" SettingsPropertyName="QLCafeConnectionString1" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Coupon" Member="Coupons">
-    <Type Name="Coupon">
-      <Column Name="maCP" Type="System.String" DbType="VarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="noidung" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="giam" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ngayBatDau" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="ngayKetThuc" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Association Name="Coupon_CT_HoaDonThu" Member="CT_HoaDonThus" ThisKey="maCP" OtherKey="maCP" Type="CT_HoaDonThu" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=QLCafe;Integrated Security=True" SettingsObjectName="DataAccess.Properties.Settings" SettingsPropertyName="QLCafeConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CT_HoaDonChi" Member="CT_HoaDonChis">
+    <Type Name="CT_HoaDonChi">
+      <Column Name="maHDC" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="maNL" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="soluong" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ghichu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="HoaDon_CT_HoaDonChi" Member="HoaDon" ThisKey="maHDC" OtherKey="maHD" Type="HoaDon" IsForeignKey="true" />
+      <Association Name="NguyenLieu_CT_HoaDonChi" Member="NguyenLieu" ThisKey="maNL" OtherKey="maNL" Type="NguyenLieu" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.SanPham" Member="SanPhams">
@@ -21,25 +21,13 @@
       <Association Name="LoaiSP_SanPham" Member="LoaiSP1" ThisKey="loaiSP" OtherKey="maLoai" Type="LoaiSP" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.CT_HoaDonChi" Member="CT_HoaDonChis">
-    <Type Name="CT_HoaDonChi">
-      <Column Name="maHDC" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="maNL" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="soluong" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ghichu" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Association Name="HoaDon_CT_HoaDonChi" Member="HoaDon" ThisKey="maHDC" OtherKey="maHD" Type="HoaDon" IsForeignKey="true" />
-      <Association Name="NguyenLieu_CT_HoaDonChi" Member="NguyenLieu" ThisKey="maNL" OtherKey="maNL" Type="NguyenLieu" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.CT_HoaDonThu" Member="CT_HoaDonThus">
     <Type Name="CT_HoaDonThu">
       <Column Name="maHDT" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="maSP" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="soluong" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="maKH" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="maCP" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="dongia" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Association Name="Coupon_CT_HoaDonThu" Member="Coupon" ThisKey="maCP" OtherKey="maCP" Type="Coupon" IsForeignKey="true" />
       <Association Name="SanPham_CT_HoaDonThu" Member="SanPham" ThisKey="maSP" OtherKey="maSP" Type="SanPham" IsForeignKey="true" />
       <Association Name="HoaDon_CT_HoaDonThu" Member="HoaDon" ThisKey="maHDT" OtherKey="maHD" Type="HoaDon" IsForeignKey="true" />
       <Association Name="KhachHang_CT_HoaDonThu" Member="KhachHang" ThisKey="maKH" OtherKey="maKH" Type="KhachHang" IsForeignKey="true" />
@@ -51,6 +39,7 @@
       <Column Name="maNV" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
       <Column Name="ngaylapHD" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="loaiHD" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="giamgia" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Column Name="phuthu" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Column Name="tongtien" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Association Name="HoaDon_CT_HoaDonChi" Member="CT_HoaDonChis" ThisKey="maHD" OtherKey="maHDC" Type="CT_HoaDonChi" />

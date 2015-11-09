@@ -52,6 +52,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLCafe.dbml</DependentUpon>
     </Compile>
+    <Compile Include="ValidateLoaiSp.cs" />
+    <Compile Include="ValidateSP.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

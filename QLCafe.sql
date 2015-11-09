@@ -4,6 +4,7 @@ use QLCafe
 go
 create table KhachHang(maKH varchar(10) primary key,
 tenKH nvarchar(255) not null,
+cmnd varchar(10) not null,
 thanthiet bit not null)
 go	
 
@@ -15,17 +16,11 @@ cmnd varchar(10) not null,
 matkhauNV varchar(20))
 go
 
-create table Coupon(maCP varchar(10) primary key,
-noidung nvarchar(200),
-giam int not null,
-ngayBatDau date not null,
-ngayKetThuc date not null)
-go
-
 create table HoaDon(maHD varchar(100) primary key,
 maNV varchar(10) references NhanVien(maNV),
 ngaylapHD date not null,
 loaiHD bit not null,
+giamgia money,
 phuthu money,
 tongtien money)
 go
@@ -46,7 +41,6 @@ create table CT_HoaDonThu(maHDT varchar(100) references HoaDon(maHD),
 maSP varchar(10) references SanPham(maSP),
 soluong int not null,
 maKH varchar(10) references KhachHang(maKH),
-maCP varchar(10) references Coupon(maCP),
 dongia money)
 go
 

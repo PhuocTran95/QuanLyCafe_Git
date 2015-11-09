@@ -30,9 +30,6 @@ namespace DataAccess
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertCoupon(Coupon instance);
-    partial void UpdateCoupon(Coupon instance);
-    partial void DeleteCoupon(Coupon instance);
     partial void InsertSanPham(SanPham instance);
     partial void UpdateSanPham(SanPham instance);
     partial void DeleteSanPham(SanPham instance);
@@ -54,7 +51,7 @@ namespace DataAccess
     #endregion
 		
 		public QLCafeDataContext() : 
-				base(global::DataAccess.Properties.Settings.Default.QLCafeConnectionString1, mappingSource)
+				base(global::DataAccess.Properties.Settings.Default.QLCafeConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -83,11 +80,11 @@ namespace DataAccess
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Coupon> Coupons
+		public System.Data.Linq.Table<CT_HoaDonChi> CT_HoaDonChis
 		{
 			get
 			{
-				return this.GetTable<Coupon>();
+				return this.GetTable<CT_HoaDonChi>();
 			}
 		}
 		
@@ -96,14 +93,6 @@ namespace DataAccess
 			get
 			{
 				return this.GetTable<SanPham>();
-			}
-		}
-		
-		public System.Data.Linq.Table<CT_HoaDonChi> CT_HoaDonChis
-		{
-			get
-			{
-				return this.GetTable<CT_HoaDonChi>();
 			}
 		}
 		
@@ -156,160 +145,83 @@ namespace DataAccess
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Coupon")]
-	public partial class Coupon : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CT_HoaDonChi")]
+	public partial class CT_HoaDonChi
 	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		private string _maHDC;
 		
-		private string _maCP;
+		private string _maNL;
 		
-		private string _noidung;
+		private int _soluong;
 		
-		private int _giam;
+		private string _ghichu;
 		
-		private System.DateTime _ngayBatDau;
-		
-		private System.DateTime _ngayKetThuc;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnmaCPChanging(string value);
-    partial void OnmaCPChanged();
-    partial void OnnoidungChanging(string value);
-    partial void OnnoidungChanged();
-    partial void OngiamChanging(int value);
-    partial void OngiamChanged();
-    partial void OnngayBatDauChanging(System.DateTime value);
-    partial void OnngayBatDauChanged();
-    partial void OnngayKetThucChanging(System.DateTime value);
-    partial void OnngayKetThucChanged();
-    #endregion
-		
-		public Coupon()
+		public CT_HoaDonChi()
 		{
-			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maCP", DbType="VarChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string maCP
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maHDC", DbType="VarChar(100)")]
+		public string maHDC
 		{
 			get
 			{
-				return this._maCP;
+				return this._maHDC;
 			}
 			set
 			{
-				if ((this._maCP != value))
+				if ((this._maHDC != value))
 				{
-					this.OnmaCPChanging(value);
-					this.SendPropertyChanging();
-					this._maCP = value;
-					this.SendPropertyChanged("maCP");
-					this.OnmaCPChanged();
+					this._maHDC = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_noidung", DbType="NVarChar(200)")]
-		public string noidung
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maNL", DbType="VarChar(10)")]
+		public string maNL
 		{
 			get
 			{
-				return this._noidung;
+				return this._maNL;
 			}
 			set
 			{
-				if ((this._noidung != value))
+				if ((this._maNL != value))
 				{
-					this.OnnoidungChanging(value);
-					this.SendPropertyChanging();
-					this._noidung = value;
-					this.SendPropertyChanged("noidung");
-					this.OnnoidungChanged();
+					this._maNL = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_giam", DbType="Int NOT NULL")]
-		public int giam
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_soluong", DbType="Int NOT NULL")]
+		public int soluong
 		{
 			get
 			{
-				return this._giam;
+				return this._soluong;
 			}
 			set
 			{
-				if ((this._giam != value))
+				if ((this._soluong != value))
 				{
-					this.OngiamChanging(value);
-					this.SendPropertyChanging();
-					this._giam = value;
-					this.SendPropertyChanged("giam");
-					this.OngiamChanged();
+					this._soluong = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ngayBatDau", DbType="Date NOT NULL")]
-		public System.DateTime ngayBatDau
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ghichu", DbType="NVarChar(255)")]
+		public string ghichu
 		{
 			get
 			{
-				return this._ngayBatDau;
+				return this._ghichu;
 			}
 			set
 			{
-				if ((this._ngayBatDau != value))
+				if ((this._ghichu != value))
 				{
-					this.OnngayBatDauChanging(value);
-					this.SendPropertyChanging();
-					this._ngayBatDau = value;
-					this.SendPropertyChanged("ngayBatDau");
-					this.OnngayBatDauChanged();
+					this._ghichu = value;
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ngayKetThuc", DbType="Date NOT NULL")]
-		public System.DateTime ngayKetThuc
-		{
-			get
-			{
-				return this._ngayKetThuc;
-			}
-			set
-			{
-				if ((this._ngayKetThuc != value))
-				{
-					this.OnngayKetThucChanging(value);
-					this.SendPropertyChanging();
-					this._ngayKetThuc = value;
-					this.SendPropertyChanged("ngayKetThuc");
-					this.OnngayKetThucChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -513,87 +425,6 @@ namespace DataAccess
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CT_HoaDonChi")]
-	public partial class CT_HoaDonChi
-	{
-		
-		private string _maHDC;
-		
-		private string _maNL;
-		
-		private int _soluong;
-		
-		private string _ghichu;
-		
-		public CT_HoaDonChi()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maHDC", DbType="VarChar(100)")]
-		public string maHDC
-		{
-			get
-			{
-				return this._maHDC;
-			}
-			set
-			{
-				if ((this._maHDC != value))
-				{
-					this._maHDC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maNL", DbType="VarChar(10)")]
-		public string maNL
-		{
-			get
-			{
-				return this._maNL;
-			}
-			set
-			{
-				if ((this._maNL != value))
-				{
-					this._maNL = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_soluong", DbType="Int NOT NULL")]
-		public int soluong
-		{
-			get
-			{
-				return this._soluong;
-			}
-			set
-			{
-				if ((this._soluong != value))
-				{
-					this._soluong = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ghichu", DbType="NVarChar(255)")]
-		public string ghichu
-		{
-			get
-			{
-				return this._ghichu;
-			}
-			set
-			{
-				if ((this._ghichu != value))
-				{
-					this._ghichu = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CT_HoaDonThu")]
 	public partial class CT_HoaDonThu
 	{
@@ -605,8 +436,6 @@ namespace DataAccess
 		private int _soluong;
 		
 		private string _maKH;
-		
-		private string _maCP;
 		
 		private System.Nullable<decimal> _dongia;
 		
@@ -678,22 +507,6 @@ namespace DataAccess
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_maCP", DbType="VarChar(10)")]
-		public string maCP
-		{
-			get
-			{
-				return this._maCP;
-			}
-			set
-			{
-				if ((this._maCP != value))
-				{
-					this._maCP = value;
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dongia", DbType="Money")]
 		public System.Nullable<decimal> dongia
 		{
@@ -725,6 +538,8 @@ namespace DataAccess
 		
 		private bool _loaiHD;
 		
+		private System.Nullable<decimal> _giamgia;
+		
 		private System.Nullable<decimal> _phuthu;
 		
 		private System.Nullable<decimal> _tongtien;
@@ -743,6 +558,8 @@ namespace DataAccess
     partial void OnngaylapHDChanged();
     partial void OnloaiHDChanging(bool value);
     partial void OnloaiHDChanged();
+    partial void OngiamgiaChanging(System.Nullable<decimal> value);
+    partial void OngiamgiaChanged();
     partial void OnphuthuChanging(System.Nullable<decimal> value);
     partial void OnphuthuChanged();
     partial void OntongtienChanging(System.Nullable<decimal> value);
@@ -835,6 +652,26 @@ namespace DataAccess
 					this._loaiHD = value;
 					this.SendPropertyChanged("loaiHD");
 					this.OnloaiHDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_giamgia", DbType="Money")]
+		public System.Nullable<decimal> giamgia
+		{
+			get
+			{
+				return this._giamgia;
+			}
+			set
+			{
+				if ((this._giamgia != value))
+				{
+					this.OngiamgiaChanging(value);
+					this.SendPropertyChanging();
+					this._giamgia = value;
+					this.SendPropertyChanged("giamgia");
+					this.OngiamgiaChanged();
 				}
 			}
 		}
