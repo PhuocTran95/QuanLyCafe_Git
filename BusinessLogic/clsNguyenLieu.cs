@@ -97,5 +97,12 @@ namespace BusinessLogic
                 throw new Exception(ex.Message);
             }
         }
+        public string getMaNL(string tenNL)
+        {
+            db = new QLCafeDataContext();
+            NguyenLieu lst = new NguyenLieu();
+            lst = db.NguyenLieus.Where(o => o.tenNL == tenNL).FirstOrDefault();
+            return lst.maNL;
+        }
     }
 }

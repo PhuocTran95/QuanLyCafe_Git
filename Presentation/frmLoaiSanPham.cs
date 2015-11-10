@@ -113,8 +113,12 @@ namespace Presentation
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtMa.Text = dataGridView1.Rows[e.RowIndex].Cells["maLoai"].Value.ToString();
-            txtTen.Text = dataGridView1.Rows[e.RowIndex].Cells["tenLoai"].Value.ToString();
+            try
+            {
+                txtMa.Text = dataGridView1.Rows[e.RowIndex].Cells["maLoai"].Value.ToString();
+                txtTen.Text = dataGridView1.Rows[e.RowIndex].Cells["tenLoai"].Value.ToString();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void btnHuy_Click(object sender, EventArgs e)

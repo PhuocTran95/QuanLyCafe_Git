@@ -51,6 +51,12 @@
     <Compile Include="frmDSKhachHang.Designer.cs">
       <DependentUpon>frmDSKhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmHDChi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHDChi.Designer.cs">
+      <DependentUpon>frmHDChi.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmHDThu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +103,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmDSKhachHang.resx">
       <DependentUpon>frmDSKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHDChi.resx">
+      <DependentUpon>frmHDChi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHDThu.resx">
       <DependentUpon>frmHDThu.cs</DependentUpon>

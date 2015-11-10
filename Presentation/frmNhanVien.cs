@@ -122,8 +122,7 @@ namespace Presentation
             }
             if (dataGridView1.Columns["matkhauNV"] != null)
             {
-                dataGridView1.Columns["matkhauNV"].HeaderText = "Mật Khẩu Nhân Viên";
-                dataGridView1.Columns["matkhauNV"].Width = 30 * w / 100;
+                dataGridView1.Columns["matkhauNV"].Visible = false;
             }
         }
         public void capnhatData()

@@ -12,15 +12,22 @@ namespace BusinessLogic
     {
         QLCafeDataContext da;
         public clsHDThu() { da = new QLCafeDataContext(); }
-        public List<HoaDon> getAllHDThu(){
-            da = new QLCafeDataContext();
-            List<HoaDon> lst = da.HoaDons.Where(o=>o.loaiHD==true).ToList();
-            return lst;
-        }
-        public List<CT_HoaDonThu> getCTHdayMa(string mahd)
+        public List<HoaDon> getAllHDThu()
         {
             da = new QLCafeDataContext();
-            List<CT_HoaDonThu> lst = da.CT_HoaDonThus.Where(o => o.maHDT == mahd).ToList();
+            List<HoaDon> lst = da.HoaDons.Where(o => o.loaiHD == true).ToList();
+            return lst;
+        }
+        public List<clsCTHD> getCTHdayMa(string mahd)
+        {
+            da = new QLCafeDataContext();
+            var qr = da.CT_HoaDonThus.Join(da.SanPhams, hd => hd.maSP, sp => sp.tenSP, (hd, sp) => new clsCTHD
+            {
+                TenSP = sp.tenSP,
+                Soluong = hd.soluong,
+                Dongia = decimal.Parse(hd.dongia.ToString())
+            });
+            List<clsCTHD> lst = qr.ToList();
             return lst;
         }
         public List<HoaDon> getHdayMa(string mahd)
@@ -53,7 +60,7 @@ namespace BusinessLogic
             }
             catch
             {
-                return false;
+                throw new Exception("Cần xóa hết các chi tiết trong hóa đơn trước khi xóa hóa đơn!"); ;
             }
         }
         public bool updateHoaDon(HoaDon HDNew)
@@ -64,7 +71,9 @@ namespace BusinessLogic
                 HoaDon hd = da.HoaDons.Where(o => o.maHD == HDNew.maHD).FirstOrDefault();
                 if (hd != null)
                 {
-                    hd = HDNew;
+                    hd.giamgia = HDNew.giamgia;
+                    hd.phuthu = HDNew.phuthu;
+                    hd.tongtien = HDNew.tongtien;
                     da.SubmitChanges();
                     return true;
                 }
@@ -82,7 +91,7 @@ namespace BusinessLogic
             string id = "";
 
             object obj = (from hd in da.HoaDons
-                          where hd.loaiHD==true
+                          where hd.loaiHD == true
                           orderby hd.maHD descending
                           select hd.maHD
                           ).FirstOrDefault();
@@ -94,22 +103,22 @@ namespace BusinessLogic
                 int num = int.Parse(obj.ToString().Substring(
                     obj.ToString().Length - 3));
                 num++;
-                if(num<10)
+                if (num < 10)
                     id = "HDT_" + time + "00" + num;
-                else if(num>=10&&num<100)
+                else if (num >= 10 && num < 100)
                     id = "HDT_" + time + "0" + num;
                 else
                     id = "HDT_" + time + num;
             }
             return id;
         }
-        public bool deleteCTHDThu(string maHD,string maSP)
+        public bool deleteCTHDThu(string maHD, string maSP)
         {
             try
             {
                 da = new QLCafeDataContext();
 
-                CT_HoaDonThu hd = da.CT_HoaDonThus.Where(o => o.maHDT == maHD && o.maSP==maSP).FirstOrDefault();
+                CT_HoaDonThu hd = da.CT_HoaDonThus.Where(o => o.maHDT == maHD && o.maSP == maSP).FirstOrDefault();
                 da.CT_HoaDonThus.DeleteOnSubmit(hd);
                 da.SubmitChanges();
                 return true;

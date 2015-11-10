@@ -17,6 +17,13 @@ namespace BusinessLogic
             lst = db.SanPhams.ToList();
             return lst;
         }
+        public List<LoaiSP> GetAllSP2Grid()
+        {
+            db = new QLCafeDataContext();
+            List<LoaiSP> lst = new List<LoaiSP>();
+            lst = db.LoaiSPs.ToList();
+            return lst;
+        }
         public bool AddSP(SanPham s)
         {
             try

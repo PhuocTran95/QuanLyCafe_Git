@@ -31,6 +31,8 @@ namespace Presentation
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
             btnXoaMH.Enabled = false;
+            updateGrid();
+            formatGrid();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -89,18 +91,32 @@ namespace Presentation
         private void formatGrid()
         {
             int w = dataGridView1.Width;
-            dataGridView1.Columns[0].HeaderText = "Mã hóa đơn";
-            dataGridView1.Columns[0].Width = 20 * w / 100;
-            dataGridView1.Columns[1].HeaderText = "Mã nhân viên";
-            dataGridView1.Columns[1].Width = 10 * w / 100;
-            dataGridView1.Columns[2].HeaderText = "Ngày lập HĐ";
-            dataGridView1.Columns[2].Width = 25 * w / 100;
-            dataGridView1.Columns[3].HeaderText = "Giảm giá";
-            dataGridView1.Columns[3].Width = 15 * w / 100;
-            dataGridView1.Columns[4].HeaderText = "Phụ thu";
-            dataGridView1.Columns[4].Width = 15 * w / 100;
-            dataGridView1.Columns[5].HeaderText = "Tổng tiền";
-            dataGridView1.Columns[5].Width = 15 * w / 100;
+            dataGridView1.Columns["maHD"].HeaderText = "Mã hóa đơn";
+            dataGridView1.Columns["maHD"].Width = 20 * w / 100;
+            dataGridView1.Columns["maNV"].HeaderText = "Mã nhân viên";
+            dataGridView1.Columns["maNV"].Width = 10 * w / 100;
+            dataGridView1.Columns["ngaylapHD"].HeaderText = "Ngày lập HĐ";
+            dataGridView1.Columns["ngaylapHD"].Width = 25 * w / 100;
+            dataGridView1.Columns["loaiHD"].Visible = false;
+            dataGridView1.Columns["phuthu"].HeaderText = "Phụ thu";
+            dataGridView1.Columns["phuthu"].Width = 15 * w / 100;
+            dataGridView1.Columns["giamgia"].HeaderText = "Giảm giá";
+            dataGridView1.Columns["giamgia"].Width = 15 * w / 100;
+            dataGridView1.Columns["tongtien"].HeaderText = "Tổng tiền";
+            dataGridView1.Columns["tongtien"].Width = 15 * w / 100;
+            dataGridView1.Columns["NhanVien"].Visible = false; ;
+
+        }
+        private void formatGrid2()
+        {
+            int w = dataGridView1.Width;
+            dataGridView1.Columns["TenSP"].HeaderText = "Tên sản phẩm";
+            dataGridView1.Columns["TenSP"].Width = 50 * w / 100;
+            dataGridView1.Columns["Soluong"].HeaderText = "Số lượng";
+            dataGridView1.Columns["Soluong"].Width = 25 * w / 100;
+            dataGridView1.Columns["Dongia"].HeaderText = "Đơn giá";
+            dataGridView1.Columns["Dongia"].Width = 25 * w / 100;
+
         }
         private void updateGrid()
         {

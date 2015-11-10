@@ -34,27 +34,28 @@ namespace Presentation
                 {
                     if (n.maNV == txtMaNV.Text && n.matkhauNV == txtMatKhau.Text)
                     {
-                        this.Hide();
-                        frmMain frm = new frmMain();
-                        frm.ShowDialog();
+                        MessageBox.Show("Đăng nhập thành công!", "Thông báo");
+                        frmMain.maNV = txtMaNV.Text;
+
                         this.Close();
+                        break;
                     }
                     else
                     {
-                        MessageBox.Show("Sai IP hoặc PassWord");
+                        MessageBox.Show("Sai Mã NV hoặc PassWord","Lỗi");
                         break;
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập ID hoặc Password");
+                MessageBox.Show("Vui lòng nhập mã NV và Password","Lỗi");
             }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
     }
 }

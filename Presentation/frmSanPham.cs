@@ -252,11 +252,15 @@ namespace Presentation
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            cbLoai.Text = dataGridView1.Rows[e.RowIndex].Cells["loaiSP"].Value.ToString();
-            txtTenSP.Text = dataGridView1.Rows[e.RowIndex].Cells["tenSP"].Value.ToString();
-            txtMaSP.Text = dataGridView1.Rows[e.RowIndex].Cells["maSP"].Value.ToString();
-            txtDonGia.Text = dataGridView1.Rows[e.RowIndex].Cells["dongia"].Value.ToString();
-            txtMoTa.Text = dataGridView1.Rows[e.RowIndex].Cells["mota"].Value.ToString();
+            try
+            {
+                cbLoai.Text = dataGridView1.Rows[e.RowIndex].Cells["loaiSP"].Value.ToString();
+                txtTenSP.Text = dataGridView1.Rows[e.RowIndex].Cells["tenSP"].Value.ToString();
+                txtMaSP.Text = dataGridView1.Rows[e.RowIndex].Cells["maSP"].Value.ToString();
+                txtDonGia.Text = dataGridView1.Rows[e.RowIndex].Cells["dongia"].Value.ToString();
+                txtMoTa.Text = dataGridView1.Rows[e.RowIndex].Cells["mota"].Value.ToString();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)

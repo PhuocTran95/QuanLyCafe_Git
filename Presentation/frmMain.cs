@@ -18,7 +18,9 @@ namespace Presentation
         {
             InitializeComponent();
         }
+        public static string maNV;
         clsHDThu lstHDThu = new clsHDThu();
+        Dictionary<string,int> lstCTHT_full = new Dictionary<string,int>();
         private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmDSKhachHang frmKhachHang = new frmDSKhachHang();
@@ -29,17 +31,22 @@ namespace Presentation
         private void loadTreeView()
         {
             clsSanPham lstSP = new clsSanPham();
-            List < SanPham > dsSP= lstSP.GetAllSP();
+            List<LoaiSP> dsSP = lstSP.GetAllSP2Grid();
             treeView1.Nodes.Clear();
             TreeNode nodecha = new TreeNode("DANH SÁCH SẢN PHẨM");
-            foreach (SanPham c in dsSP)
+            foreach (LoaiSP c in dsSP)
             {
-                TreeNode nodecon = new TreeNode(c.loaiSP);
-                nodecon.Tag = c.maSP;//lưu mã số nhà cung cấp vào thuộc tính Tag
-                nodecon.Nodes.Add(c.tenSP);//thêm node con là địa chỉ trong nodeCon
-                nodecha.Nodes.Add(nodecon);//thêm nodecon vào node con
+                TreeNode nodecon = new TreeNode(c.tenLoai);
+                nodecon.Tag = c.maLoai;
+                foreach (SanPham s in c.SanPhams)
+                {
+                    nodecon.Nodes.Add(s.tenSP);
+                    
+                }
+                nodecha.Nodes.Add(nodecon);
             }
-            treeView1.Nodes.Add(nodecha);//thêm nodecha vào TreeView
+            treeView1.Nodes.Add(nodecha);
+            treeView1.ExpandAll();
         }
 
         private void thêmLoạiMặtHàngToolStripMenuItem_Click(object sender, EventArgs e)
@@ -56,10 +63,16 @@ namespace Presentation
             this.Hide();
             frmsanpham.ShowDialog();
             this.Show();
+            loadTreeView();
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            frmLogin frmlogin= new frmLogin();
+            this.Hide();
+            frmlogin.ShowDialog();
+            this.Show();
+            txt_nhanviengd.Text = maNV;
             resetForm();
             loadTreeView();
         }
@@ -70,7 +83,6 @@ namespace Presentation
             txt_nhanviengd.Enabled = false;
             txtKhachHang.Text = "Unknown";
             btnLuu.Enabled = false;
-            btnThemMH.Enabled = false;
             btnKiemTra.Enabled = false;
             btnXoaMH.Enabled = false;
             txtMaHD.Text = lstHDThu.createMaHD();
@@ -141,6 +153,29 @@ namespace Presentation
             frmNhanVien frmnhanvien = new frmNhanVien();
             this.Hide();
             frmnhanvien.ShowDialog();
+            this.Show();
+        }
+
+        private void btnThemMH_Click(object sender, EventArgs e)
+        {
+            if (numericUpDown1.Value == 0)
+                MessageBox.Show("Chưa nhập số lượng", "Lỗi");
+            else
+            {
+                if (treeView1.SelectedNode == null)
+                    MessageBox.Show("Chưa chọn mặt hàng", "Lỗi");
+                else
+                {
+                    
+                }
+            }
+        }
+
+        private void chiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHDChi frmHDChi = new frmHDChi();
+            this.Hide();
+            frmHDChi.ShowDialog();
             this.Show();
         }
     }

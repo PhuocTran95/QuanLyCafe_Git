@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsCTHD.cs" />
+    <Compile Include="clsCTHDChi.cs" />
+    <Compile Include="clsCTHD_full.cs" />
     <Compile Include="clsHDChi.cs" />
     <Compile Include="clsHDThu.cs" />
     <Compile Include="clsKhachHang.cs" />

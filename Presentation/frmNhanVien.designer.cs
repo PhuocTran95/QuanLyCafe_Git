@@ -31,6 +31,7 @@
             this.btnCapNhat = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnDSNhanVien = new System.Windows.Forms.Button();
             this.cbLoaiTim = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtThongTin = new System.Windows.Forms.TextBox();
@@ -55,7 +56,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnDSNhanVien = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -94,6 +94,16 @@
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tìm kiếm";
+            // 
+            // btnDSNhanVien
+            // 
+            this.btnDSNhanVien.Location = new System.Drawing.Point(104, 109);
+            this.btnDSNhanVien.Name = "btnDSNhanVien";
+            this.btnDSNhanVien.Size = new System.Drawing.Size(124, 23);
+            this.btnDSNhanVien.TabIndex = 9;
+            this.btnDSNhanVien.Text = "Danh sách nhân viên";
+            this.btnDSNhanVien.UseVisualStyleBackColor = true;
+            this.btnDSNhanVien.Click += new System.EventHandler(this.btnDSNhanVien_Click);
             // 
             // cbLoaiTim
             // 
@@ -172,6 +182,7 @@
             this.txtMatKhau.Enabled = false;
             this.txtMatKhau.Location = new System.Drawing.Point(112, 161);
             this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(289, 20);
             this.txtMatKhau.TabIndex = 6;
             // 
@@ -334,16 +345,6 @@
             this.label1.Size = new System.Drawing.Size(350, 31);
             this.label1.TabIndex = 10;
             this.label1.Text = "DANH SÁCH NHÂN VIÊN";
-            // 
-            // btnDSNhanVien
-            // 
-            this.btnDSNhanVien.Location = new System.Drawing.Point(104, 109);
-            this.btnDSNhanVien.Name = "btnDSNhanVien";
-            this.btnDSNhanVien.Size = new System.Drawing.Size(124, 23);
-            this.btnDSNhanVien.TabIndex = 9;
-            this.btnDSNhanVien.Text = "Danh sách nhân viên";
-            this.btnDSNhanVien.UseVisualStyleBackColor = true;
-            this.btnDSNhanVien.Click += new System.EventHandler(this.btnDSNhanVien_Click);
             // 
             // frmNhanVien
             // 

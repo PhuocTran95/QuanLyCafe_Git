@@ -69,7 +69,9 @@ namespace BusinessLogic
                 KhachHang kh = da.KhachHangs.Where(o => o.maKH == KHNew.maKH).FirstOrDefault();
                 if(kh!=null)
                 {
-                    kh = KHNew;
+                    kh.tenKH = KHNew.tenKH;
+                    kh.thanthiet = KHNew.thanthiet;
+                    kh.cmnd = KHNew.cmnd;
                     da.SubmitChanges();
                     return true;
                 }
