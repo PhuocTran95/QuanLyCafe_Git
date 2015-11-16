@@ -41,7 +41,7 @@ namespace BusinessLogic
                 if (x != null)
                 {
                     x.tenNL = l.tenNL;
-                    x.dongiaNL = l.dongiaNL;
+                    x.dvtinh = l.dvtinh;
                     db.SubmitChanges();
                     return true;
                 }
@@ -103,6 +103,14 @@ namespace BusinessLogic
             NguyenLieu lst = new NguyenLieu();
             lst = db.NguyenLieus.Where(o => o.tenNL == tenNL).FirstOrDefault();
             return lst.maNL;
+        }
+
+        public string getDVTinh(string tenNL)
+        {
+            db = new QLCafeDataContext();
+            NguyenLieu lst = new NguyenLieu();
+            lst = db.NguyenLieus.Where(o => o.tenNL == tenNL).FirstOrDefault();
+            return lst.dvtinh;
         }
     }
 }

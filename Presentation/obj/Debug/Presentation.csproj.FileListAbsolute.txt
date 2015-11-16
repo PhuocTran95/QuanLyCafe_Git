@@ -21,3 +21,26 @@ D:\Data Phuoc\IUH\Nam III\HK1\LT Windows nang cao\QuanLyCafe_Git\Presentation\ob
 D:\Data Phuoc\IUH\Nam III\HK1\LT Windows nang cao\QuanLyCafe_Git\Presentation\obj\Debug\Presentation.frmNguyenLieu.resources
 D:\Data Phuoc\IUH\Nam III\HK1\LT Windows nang cao\QuanLyCafe_Git\Presentation\obj\Debug\Presentation.frmNhanVien.resources
 D:\Data Phuoc\IUH\Nam III\HK1\LT Windows nang cao\QuanLyCafe_Git\Presentation\obj\Debug\Presentation.frmHDChi.resources
+D:\Data Phuoc\IUH\Nam III\HK1\LT Windows nang cao\QuanLyCafe_Git\Presentation\obj\Debug\Presentation.frmDoiMK.resources
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\bin\Debug\Presentation.exe.config
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\obj\Debug\Presentation.exe
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\obj\Debug\Presentation.pdb
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\bin\Debug\Presentation.exe
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\bin\Debug\Presentation.pdb
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\bin\Debug\BusinessLogic.dll
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\bin\Debug\DataAccess.dll
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\bin\Debug\BusinessLogic.pdb
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\bin\Debug\DataAccess.pdb
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\obj\Debug\Presentation.csprojResolveAssemblyReference.cache
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\obj\Debug\Presentation.frmDoiMK.resources
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\obj\Debug\Presentation.frmDSKhachHang.resources
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\obj\Debug\Presentation.frmHDChi.resources
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\obj\Debug\Presentation.frmHDThu.resources
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\obj\Debug\Presentation.frmDSLoaiSanPham.resources
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\obj\Debug\Presentation.frmLogin.resources
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\obj\Debug\Presentation.frmMain.resources
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\obj\Debug\Presentation.frmNguyenLieu.resources
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\obj\Debug\Presentation.frmNhanVien.resources
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\obj\Debug\Presentation.frmSanPham.resources
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\obj\Debug\Presentation.Properties.Resources.resources
+C:\Users\npkd2\Desktop\QuanLyCafe_Git\Presentation\obj\Debug\Presentation.csproj.GenerateResource.Cache

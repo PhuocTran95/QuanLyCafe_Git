@@ -18,38 +18,41 @@ namespace Presentation
         {
             InitializeComponent();
         }
-        List<NhanVien> lst = new List<NhanVien>();
+        NhanVien nv = new NhanVien();
         clsNhanVien clNV = new clsNhanVien();
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            lst = clNV.GetAllNhanVien();
+            this.ControlBox = false;
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             if (txtMatKhau.Text != "" && txtMaNV.Text != "")
             {
-
-                foreach (NhanVien n in lst)
+                try
                 {
-                    if (n.maNV == txtMaNV.Text && n.matkhauNV == txtMatKhau.Text)
+                    nv = clNV.searchTheoMa(txtMaNV.Text);
+                    if (nv.maNV != null)
                     {
-                        MessageBox.Show("Đăng nhập thành công!", "Thông báo");
-                        frmMain.maNV = txtMaNV.Text;
-
-                        this.Close();
-                        break;
+                        if (nv.matkhauNV == txtMatKhau.Text)
+                        {
+                            MessageBox.Show("Đăng nhập thành công!", "Thông báo");
+                            frmMain.maNV = txtMaNV.Text;
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Sai mật khẩu", "Lỗi");
+                        }
                     }
                     else
-                    {
-                        MessageBox.Show("Sai Mã NV hoặc PassWord","Lỗi");
-                        break;
-                    }
+                        MessageBox.Show("Mã NV không tồn tại", "Lỗi");
                 }
+                catch { MessageBox.Show("Mã NV không tồn tại hoặc sai mật khẩu", "Lỗi"); }
             }
             else
             {
-                MessageBox.Show("Vui lòng nhập mã NV và Password","Lỗi");
+                MessageBox.Show("Vui lòng nhập mã NV và mật khẩu","Lỗi");
             }
         }
 

@@ -30,6 +30,12 @@ namespace BusinessLogic
             List<KhachHang> lstKH = da.KhachHangs.Where(o => o.tenKH == tenKH).ToList();
             return lstKH;
         }
+        public string getKhachHangByName(string tenKH)
+        {
+            da = new QLCafeDataContext();
+            KhachHang lstKH = da.KhachHangs.Where(o => o.tenKH == tenKH).FirstOrDefault();
+            return lstKH.maKH;
+        }
         public bool addKhachHang(KhachHang kh)
         {
             try

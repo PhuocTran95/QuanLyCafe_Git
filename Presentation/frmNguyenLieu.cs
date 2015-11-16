@@ -45,7 +45,7 @@ namespace Presentation
                 txtMa.Focus();
                 btnThem.Text = "Hủy";
                 txtMa.Text = "NL";
-                txtDonGia.Text = "0";
+                txtDonGia.Text = "";
                 btnLuu.Enabled = true;
                 btnSua.Enabled = false;
             }
@@ -107,10 +107,10 @@ namespace Presentation
                 dataGridView1.Columns["tenNL"].HeaderText = "Tên Nguyên Liệu";
                 dataGridView1.Columns["tenNL"].Width = 30 * w / 100;
             }
-            if (dataGridView1.Columns["dongiaNL"] != null)
+            if (dataGridView1.Columns["dvtinh"] != null)
             {
-                dataGridView1.Columns["dongiaNL"].HeaderText = "Đơn Giá";
-                dataGridView1.Columns["dongiaNL"].Width = 40 * w / 100;
+                dataGridView1.Columns["dvtinh"].HeaderText = "Đơn vị tính";
+                dataGridView1.Columns["dvtinh"].Width = 40 * w / 100;
             }
            
         }
@@ -123,7 +123,7 @@ namespace Presentation
                     NguyenLieu nl = new NguyenLieu();
                     nl.maNL = txtMa.Text;
                     nl.tenNL = txtTen.Text;
-                    nl.dongiaNL = decimal.Parse(txtDonGia.Text);
+                    nl.dvtinh = txtDonGia.Text;
                     if (clNL.AddNguyenLieu(nl) == true)
                     {
                         MessageBox.Show("Thêm thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -154,7 +154,7 @@ namespace Presentation
                         NguyenLieu nl1= new NguyenLieu();
                         nl1.maNL = txtMa.Text;
                         nl1.tenNL = txtTen.Text;
-                        nl1.dongiaNL = decimal.Parse(txtDonGia.Text);
+                        nl1.dvtinh = txtDonGia.Text;
                         if (clNL.UpdateNguyenLieu(nl1))
                         {
                             MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -222,7 +222,7 @@ namespace Presentation
             {
                 txtMa.Text = dataGridView1.Rows[e.RowIndex].Cells["maNL"].Value.ToString();
                 txtTen.Text = dataGridView1.Rows[e.RowIndex].Cells["tenNL"].Value.ToString();
-                txtDonGia.Text = dataGridView1.Rows[e.RowIndex].Cells["dongiaNL"].Value.ToString();
+                txtDonGia.Text = dataGridView1.Rows[e.RowIndex].Cells["dvtinh"].Value.ToString();
             }
             catch (Exception ex)
             {

@@ -18,10 +18,21 @@ namespace BusinessLogic
             List<HoaDon> lst = da.HoaDons.Where(o => o.loaiHD == true).ToList();
             return lst;
         }
+        public bool addCTHDThu(CT_HoaDonThu cthdThu)
+        {
+            try
+            {
+                da = new QLCafeDataContext();
+                da.CT_HoaDonThus.InsertOnSubmit(cthdThu);
+                da.SubmitChanges();
+                return true;
+            }
+            catch (Exception ex) { throw new Exception(ex.Message); }
+        }
         public List<clsCTHD> getCTHdayMa(string mahd)
         {
             da = new QLCafeDataContext();
-            var qr = da.CT_HoaDonThus.Join(da.SanPhams, hd => hd.maSP, sp => sp.tenSP, (hd, sp) => new clsCTHD
+            var qr = da.CT_HoaDonThus.Where(hd=>hd.maHDT==mahd).Join(da.SanPhams, hd => hd.maSP, sp => sp.maSP, (hd, sp) => new clsCTHD
             {
                 TenSP = sp.tenSP,
                 Soluong = hd.soluong,

@@ -17,16 +17,17 @@ namespace BusinessLogic
             return lst;
         }
 
-        public List<clsCTHDChi> getCTHdayMa(string mahd)
+        public clsCTHDChi getCTHdayMa(string mahd)
         {
             da = new QLCafeDataContext();
             var qr = da.CT_HoaDonChis.Join(da.NguyenLieus, hd => hd.maNL, sp => sp.maNL, (hd, sp) => new clsCTHDChi
             {
                 TenNL = sp.tenNL,
+                DVTinh = sp.dvtinh,
                 Soluong = hd.soluong,
                 Ghichu=hd.ghichu
             });
-            List<clsCTHDChi> lst = qr.ToList();
+            clsCTHDChi lst = qr.ToList().FirstOrDefault();
             return lst;
         }
         public List<HoaDon> getHdayMa(string mahd)
@@ -55,7 +56,7 @@ namespace BusinessLogic
                 da.SubmitChanges();
                 return true;
             }
-            catch { throw new Exception("Thêm Chi tiết Hóa đơn thất bại"); }
+            catch(Exception ex) { throw new Exception (ex.Message); }
         }
         public bool deleteHDChi(string maHD)
         {

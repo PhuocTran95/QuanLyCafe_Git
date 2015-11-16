@@ -120,5 +120,17 @@ namespace BusinessLogic
                 throw new Exception(ex.Message);
             }
         }
+        public decimal getDonGia(string tensp)
+        {
+            db = new QLCafeDataContext();
+            SanPham l = db.SanPhams.Where(o => o.tenSP == tensp).FirstOrDefault();
+            return l.dongia;
+        }
+        public string getMaSP(string tensp)
+        {
+            db = new QLCafeDataContext();
+            SanPham l = db.SanPhams.Where(o => o.tenSP == tensp).FirstOrDefault();
+            return l.maSP;
+        }
     }
 }

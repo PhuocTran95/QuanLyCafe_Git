@@ -96,9 +96,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(34, 92);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 13);
+            this.label7.Size = new System.Drawing.Size(68, 13);
             this.label7.TabIndex = 9;
-            this.label7.Text = "Đơn Giá:";
+            this.label7.Text = "Đơn Vị Tính:";
             // 
             // label6
             // 

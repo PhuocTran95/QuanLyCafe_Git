@@ -21,10 +21,10 @@ namespace DataAccess
             if (value == "" || value == null)
                 throw new Exception("Chưa nhập tên Nhan Vien");
         }
-        partial void OndongiaNLChanging(decimal? value)
+        partial void OndvtinhChanging(string value)
         {
-            if (value < 0)
-                throw new Exception("Đơn Giá không thể nhỏ hơn 0");
+            if (value == "" || value == null)
+                throw new Exception("Chưa nhập đơn vị tính");
         }
     }
     }

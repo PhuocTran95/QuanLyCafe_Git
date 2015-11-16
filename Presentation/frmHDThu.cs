@@ -30,7 +30,7 @@ namespace Presentation
             btnLuu.Enabled = false;
             btnSua.Enabled = false;
             btnXoa.Enabled = false;
-            btnXoaMH.Enabled = false;
+            txtmaKH.Enabled = false;
             updateGrid();
             formatGrid();
         }
@@ -43,13 +43,16 @@ namespace Presentation
                 btnXoa.Enabled = true;
                 txtMaHD.Text = dataGridView1.Rows[e.RowIndex].Cells["maHD"].Value.ToString();
                 txtMaNV.Text = dataGridView1.Rows[e.RowIndex].Cells["maNV"].Value.ToString();
+                txtmaKH.Text = dataGridView1.Rows[e.RowIndex].Cells["maKH"].Value.ToString();
                 txtNgayLapHD.Text = dataGridView1.Rows[e.RowIndex].Cells["ngaylapHD"].Value.ToString();
-                txtNgayLapHD.Text = dataGridView1.Rows[e.RowIndex].Cells["ngaylapHD"].Value.ToString();
-                txtGiamGia.Text = dataGridView1.Rows[e.RowIndex].Cells["giamgia"].Value.ToString();
-                txtPhuThu.Text = dataGridView1.Rows[e.RowIndex].Cells["phuthu"].Value.ToString();
+                if (dataGridView1.Rows[e.RowIndex].Cells["giamgia"].Value!=null)
+                    txtGiamGia.Text = dataGridView1.Rows[e.RowIndex].Cells["giamgia"].Value.ToString();
+                if (dataGridView1.Rows[e.RowIndex].Cells["phuthu"].Value!=null)
+                    txtPhuThu.Text = dataGridView1.Rows[e.RowIndex].Cells["phuthu"].Value.ToString();
                 txtTongTien.Text = dataGridView1.Rows[e.RowIndex].Cells["tongtien"].Value.ToString();
                 dataGridView2.DataBindings.Clear();
                 dataGridView2.DataSource = lstHDThu.getCTHdayMa(dataGridView1.Rows[e.RowIndex].Cells["maHD"].Value.ToString());
+                formatGrid2();
             }
             catch (Exception ex)
             {
@@ -95,27 +98,30 @@ namespace Presentation
             dataGridView1.Columns["maHD"].Width = 20 * w / 100;
             dataGridView1.Columns["maNV"].HeaderText = "Mã nhân viên";
             dataGridView1.Columns["maNV"].Width = 10 * w / 100;
+            dataGridView1.Columns["maKH"].HeaderText = "Mã khách hàng";
+            dataGridView1.Columns["maKh"].Width = 10 * w / 100;
             dataGridView1.Columns["ngaylapHD"].HeaderText = "Ngày lập HĐ";
             dataGridView1.Columns["ngaylapHD"].Width = 25 * w / 100;
             dataGridView1.Columns["loaiHD"].Visible = false;
             dataGridView1.Columns["phuthu"].HeaderText = "Phụ thu";
-            dataGridView1.Columns["phuthu"].Width = 15 * w / 100;
+            dataGridView1.Columns["phuthu"].Width = 10 * w / 100;
             dataGridView1.Columns["giamgia"].HeaderText = "Giảm giá";
-            dataGridView1.Columns["giamgia"].Width = 15 * w / 100;
+            dataGridView1.Columns["giamgia"].Width = 10 * w / 100;
             dataGridView1.Columns["tongtien"].HeaderText = "Tổng tiền";
             dataGridView1.Columns["tongtien"].Width = 15 * w / 100;
-            dataGridView1.Columns["NhanVien"].Visible = false; ;
+            dataGridView1.Columns["NhanVien"].Visible = false;
+            dataGridView1.Columns["KhachHang"].Visible = false;
 
         }
         private void formatGrid2()
         {
             int w = dataGridView1.Width;
-            dataGridView1.Columns["TenSP"].HeaderText = "Tên sản phẩm";
-            dataGridView1.Columns["TenSP"].Width = 50 * w / 100;
-            dataGridView1.Columns["Soluong"].HeaderText = "Số lượng";
-            dataGridView1.Columns["Soluong"].Width = 25 * w / 100;
-            dataGridView1.Columns["Dongia"].HeaderText = "Đơn giá";
-            dataGridView1.Columns["Dongia"].Width = 25 * w / 100;
+            dataGridView2.Columns["TenSP"].HeaderText = "Tên sản phẩm";
+            dataGridView2.Columns["TenSP"].Width = 20 * w / 100;
+            dataGridView2.Columns["Soluong"].HeaderText = "Số lượng";
+            dataGridView2.Columns["Soluong"].Width = 15 * w / 100;
+            dataGridView2.Columns["Dongia"].HeaderText = "Đơn giá";
+            dataGridView2.Columns["Dongia"].Width = 15 * w / 100;
 
         }
         private void updateGrid()
@@ -132,12 +138,9 @@ namespace Presentation
                 btnXoa.Enabled = false;
                 btnSua.Text = "Hủy";
                 txtGiamGia.Enabled = true;
-                txtMaHD.Enabled = true;
-                txtMaNV.Enabled = true;
-                txtNgayLapHD.Enabled = true;
                 txtPhuThu.Enabled = true;
                 txtTongTien.Enabled = true;
-                btnXoaMH.Enabled = true;
+                btnLuu.Enabled = true;
             }
             else
             {
@@ -149,7 +152,7 @@ namespace Presentation
                 txtNgayLapHD.Enabled = false;
                 txtPhuThu.Enabled = false;
                 txtTongTien.Enabled = false;
-                btnXoaMH.Enabled = false;
+                btnLuu.Enabled = false;
             }
         }
 
@@ -161,8 +164,10 @@ namespace Presentation
                 hd.maHD = txtMaHD.Text;
                 hd.maNV = txtMaNV.Text;
                 hd.ngaylapHD = DateTime.Parse(txtNgayLapHD.Text);
-                hd.giamgia = decimal.Parse(txtGiamGia.Text);
-                hd.phuthu = decimal.Parse(txtPhuThu.Text);
+                if (txtGiamGia.Text.Length > 0)
+                    hd.giamgia = decimal.Parse(txtGiamGia.Text);
+                if (txtPhuThu.Text.Length > 0)
+                    hd.phuthu = decimal.Parse(txtPhuThu.Text);
                 hd.tongtien = decimal.Parse(txtTongTien.Text);
                 if (lstHDThu.updateHoaDon(hd))
                     MessageBox.Show("Chỉnh sửa hóa đơn thành công", "Thông báo");
@@ -178,24 +183,12 @@ namespace Presentation
                 txtNgayLapHD.Enabled = false;
                 txtPhuThu.Enabled = false;
                 txtTongTien.Enabled = false;
-                btnXoaMH.Enabled = false;
+                btnLuu.Enabled = false;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Lỗi");
-            }
-        }
-
-        private void btnXoaMH_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!lstHDThu.deleteCTHDThu(txtMaHD.Text, dataGridView2.SelectedRows[0].Cells["maSP"].Value.ToString()))
-                    MessageBox.Show("Xóa thất bại!", "Lỗi");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Lỗi");
+                txtTongTien.Clear();
             }
         }
     }
