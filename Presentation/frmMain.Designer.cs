@@ -72,6 +72,8 @@
             this.btnThemMH = new System.Windows.Forms.Button();
             this.lblSoLuong = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.trợGiúpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thôngTinỨngdụngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.grb_giaodich.SuspendLayout();
             this.grb_mathang.SuspendLayout();
@@ -198,7 +200,8 @@
             this.mToolStripMenuItem,
             this.quảnLýToolStripMenuItem,
             this.kháchHàngToolStripMenuItem,
-            this.nhânSựToolStripMenuItem});
+            this.nhânSựToolStripMenuItem,
+            this.trợGiúpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 24);
@@ -499,6 +502,21 @@
             this.splitContainer1.SplitterDistance = 261;
             this.splitContainer1.TabIndex = 3;
             // 
+            // trợGiúpToolStripMenuItem
+            // 
+            this.trợGiúpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thôngTinỨngdụngToolStripMenuItem});
+            this.trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
+            this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.trợGiúpToolStripMenuItem.Text = "&Trợ giúp";
+            // 
+            // thôngTinỨngdụngToolStripMenuItem
+            // 
+            this.thôngTinỨngdụngToolStripMenuItem.Name = "thôngTinỨngdụngToolStripMenuItem";
+            this.thôngTinỨngdụngToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.thôngTinỨngdụngToolStripMenuItem.Text = "Thông tin ứng &dụng";
+            this.thôngTinỨngdụngToolStripMenuItem.Click += new System.EventHandler(this.thôngTinỨngdụngToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -574,6 +592,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ToolStripMenuItem trợGiúpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thôngTinỨngdụngToolStripMenuItem;
     }
 }
 

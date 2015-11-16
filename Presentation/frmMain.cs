@@ -83,6 +83,7 @@ namespace Presentation
             txt_nhanviengd.Text = maNV;
             resetForm();
             loadTreeView();
+            this.ControlBox = false;
         }
 
         private void resetForm()
@@ -272,10 +273,7 @@ namespace Presentation
             d = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất khỏi hệ thống?", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             if (d == DialogResult.Yes)
             {
-                frmLogin frmlogin = new frmLogin();
-                this.Hide();
-                frmlogin.ShowDialog();
-                this.Show();
+                Application.Restart();
             }
         }
 
@@ -303,6 +301,12 @@ namespace Presentation
             foreach (ListViewItem x in listView1.Items)
                 tongtien += int.Parse(x.SubItems[1].Text) * decimal.Parse(x.SubItems[2].Text);
             return tongtien;
+        }
+
+        private void thôngTinỨngdụngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAboutApp about = new frmAboutApp();
+            about.ShowDialog();
         }
     }
 }
